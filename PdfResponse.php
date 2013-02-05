@@ -21,12 +21,6 @@ use Nette\Utils\Strings;
  */
 class PdfResponse extends Nette\Object implements Nette\Application\IResponse
 {
-	/**
-	 * path to mPDF.php
-	 * @var string
-	 */
-	public static $mPDFPath = "/mPDF/mpdf.php";
-
 
 	/**
 	 * Source data
@@ -375,10 +369,6 @@ class PdfResponse extends Nette\Object implements Nette\Application\IResponse
 	 */
 	public function createMPDF()
 	{
-		$mpdfPath = LIBS_DIR . self::$mPDFPath;
-		define('_MPDF_PATH', dirname($mpdfPath) . "/");
-		require($mpdfPath);
-
 		$margins = $this->getMargins();
 
 		//  [ float $margin_header , float $margin_footer [, string $orientation ]]]]]])
